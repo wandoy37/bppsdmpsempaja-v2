@@ -21,7 +21,14 @@
 
     <!-- Custom styles for this template-->
     <link href="{{ asset('sbadmin/css/sb-admin-2.min.css') }}" rel="stylesheet">
-
+    <style>
+        .btn-green {
+            background-color: #013220;
+            color: white;
+            font-weight: bold;
+        }
+    </style>
+    @stack('styles')
 </head>
 
 <body id="page-top">
@@ -42,10 +49,10 @@
             <div class="sidebar-heading">
                 Postingan
             </div>
-            <li class="nav-item">
-                <a class="nav-link" href="tables.html">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Tables</span></a>
+            <li class="nav-item {{ request()->segment(2) == 'kategori' ? 'active' : '' }}">
+                <a class="nav-link" href="{{ route('kategori.index') }}">
+                    <i class="fas fa-th-list"></i>
+                    <span>Kategori</span></a>
             </li>
             <hr class="sidebar-divider d-none d-md-block">
             <div class="text-center d-none d-md-inline">
@@ -134,7 +141,7 @@
     <!-- Page level custom scripts -->
     <script src="{{ asset('sbadmin/js/demo/chart-area-demo.js') }}"></script>
     <script src="{{ asset('sbadmin/js/demo/chart-pie-demo.js') }}"></script>
-
+    @stack('scripts')
 </body>
 
 </html>
