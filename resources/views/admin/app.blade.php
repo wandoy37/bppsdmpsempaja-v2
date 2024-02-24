@@ -59,7 +59,19 @@
                     <i class="far fa-newspaper"></i>
                     <span>Postingan</span></a>
             </li>
-            <hr class="sidebar-divider d-none d-md-block">
+            <hr class="sidebar-divider">
+            @if (Auth::user()->role == 'admin')
+                <div class="sidebar-heading">
+                    Menu Master
+                </div>
+                <li class="nav-item {{ request()->segment(2) == 'pengguna' ? 'active' : '' }}">
+                    <a class="nav-link" href="{{ route('pengguna.index') }}">
+                        <i class="fas fa-users"></i>
+                        <span>Pengguna</span></a>
+                </li>
+                <hr class="sidebar-divider d-none d-md-block">
+            @endif
+
             <div class="text-center d-none d-md-inline">
                 <button class="rounded-circle border-0" id="sidebarToggle"></button>
             </div>
@@ -90,6 +102,10 @@
                             </div>
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
+                                <a class="dropdown-item" href="{{ route('pengguna.edit', Auth::user()->id) }}">
+                                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Profile
+                                </a>
                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                     onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>

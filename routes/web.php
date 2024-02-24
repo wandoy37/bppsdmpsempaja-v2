@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\KategoriController;
+use App\Http\Controllers\PenggunaController;
 use App\Http\Controllers\PostinganController;
 use Illuminate\Support\Facades\Route;
 
@@ -28,4 +29,14 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('/dashboard/kategori', KategoriController::class);
     // Post Controller
     Route::resource('dashboard/postingan', PostinganController::class);
+    // Pengguna Controller
+    Route::resource('dashboard/pengguna', PenggunaController::class);
+
+    Route::middleware(['role:admin'])->group(function () {
+        Route::get('dashboard/pengguna', [PenggunaController::class, 'index'])->name('pengguna.index');
+        Route::get('dashboard/pengguna/create', [PenggunaController::class, 'create'])->name('pengguna.create');
+        Route::delete('dashboard/pengguna/{pengguna}', [PenggunaController::class, 'destroy'])->name('pengguna.destroy');
+    });
+    Route::get('dashboard/pengguna/{pengguna}/edit', [PenggunaController::class, 'edit'])->name('pengguna.edit');
+    Route::patch('dashboard/pengguna/{pengguna}', [PenggunaController::class, 'update'])->name('pengguna.update');
 });
