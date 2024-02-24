@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\KategoriController;
+use App\Http\Controllers\PostinganController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,4 +26,6 @@ Route::middleware(['auth'])->group(function () {
 
     // Kategori Controller
     Route::resource('/dashboard/kategori', KategoriController::class);
+    // Post Controller
+    Route::resource('dashboard/postingan', PostinganController::class);
 });

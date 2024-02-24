@@ -47,12 +47,17 @@
             </a>
             <hr class="sidebar-divider">
             <div class="sidebar-heading">
-                Postingan
+                Buat Postingan
             </div>
             <li class="nav-item {{ request()->segment(2) == 'kategori' ? 'active' : '' }}">
                 <a class="nav-link" href="{{ route('kategori.index') }}">
                     <i class="fas fa-th-list"></i>
                     <span>Kategori</span></a>
+            </li>
+            <li class="nav-item {{ request()->segment(2) == 'postingan' ? 'active' : '' }}">
+                <a class="nav-link" href="{{ route('postingan.index') }}">
+                    <i class="far fa-newspaper"></i>
+                    <span>Postingan</span></a>
             </li>
             <hr class="sidebar-divider d-none d-md-block">
             <div class="text-center d-none d-md-inline">
@@ -134,13 +139,6 @@
 
     <!-- Custom scripts for all pages-->
     <script src="{{ asset('sbadmin/js/sb-admin-2.min.js') }}"></script>
-
-    <!-- Page level plugins -->
-    <script src="{{ asset('sbadmin/vendor/chart.js/Chart.min.js') }}"></script>
-
-    <!-- Page level custom scripts -->
-    <script src="{{ asset('sbadmin/js/demo/chart-area-demo.js') }}"></script>
-    <script src="{{ asset('sbadmin/js/demo/chart-pie-demo.js') }}"></script>
     @stack('scripts')
 </body>
 

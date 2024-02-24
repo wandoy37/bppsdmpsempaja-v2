@@ -49,21 +49,22 @@
                                 @php
                                     $no = 1;
                                 @endphp
-                                @foreach ($kegiatans as $kegiatan)
+                                @foreach ($kategoris as $kategori)
                                     <tr>
                                         <td class="text-center">{{ $no++ }}</td>
-                                        <td>{{ $kegiatan->title }}</td>
+                                        <td>{{ $kategori->title }}</td>
                                         <td class="text-center">
-                                            <form action="{{ route('kategori.destroy', $kegiatan->id) }}" method="POST"
+                                            <form action="{{ route('kategori.destroy', $kategori->id) }}" method="POST"
                                                 class="form-inline justify-content-center">
                                                 @csrf
                                                 @method('DELETE')
-                                                <a href="{{ route('kategori.edit', $kegiatan->id) }}"
+                                                <a href="{{ route('kategori.edit', $kategori->id) }}"
                                                     class="btn btn-info btn-sm mr-1">
                                                     <i class="fas fa-pen"></i>
                                                     Edit
                                                 </a>
-                                                <button type="submit" class="btn btn-danger btn-sm">
+                                                <button type="submit" class="btn btn-danger btn-sm"
+                                                    onclick="return confirm('Anda yakin ingin menghapus kategori ini? kategori yang di hapus akan menghapus postingan')">
                                                     <i class="fas fa-trash"></i>
                                                 </button>
                                             </form>

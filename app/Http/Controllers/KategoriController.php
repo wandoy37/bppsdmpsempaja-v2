@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\File;
 
 class KategoriController extends Controller
 {
@@ -15,8 +16,8 @@ class KategoriController extends Controller
      */
     public function index()
     {
-        $kegiatans = Kategori::orderBy('id', 'DESC')->get();
-        return view('admin.kategori.index', compact('kegiatans'));
+        $kategoris = Kategori::orderBy('id', 'DESC')->get();
+        return view('admin.kategori.index', compact('kategoris'));
     }
 
     /**
@@ -127,6 +128,12 @@ class KategoriController extends Controller
         $kategori = Kategori::find($id);
         DB::beginTransaction();
         try {
+            $postingans = $kategori->postingans;
+            foreach ($postingans as $postingan) {
+                $path = public_path() . '/postingan/thumbnail/';
+                File::delete($path . $postingan->thumbnail);
+                $postingan->delete($postingan);
+            }
             $kategori->delete($kategori);
             return redirect()->route('kategori.index')->with('success', $kategori->title . ' telah dihapus');
         } catch (\Throwable $th) {
