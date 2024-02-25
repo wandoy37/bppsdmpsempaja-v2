@@ -1,12 +1,12 @@
 @extends('admin.app')
 @section('title')
-    DASHBOARD
+    Qrcode
 @endsection
 
 @section('content')
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-900">Edit Kategori</h1>
-        <a href="{{ route('kategori.index') }}" class="btn btn-secondary">
+        <h1 class="h3 mb-0 text-gray-900">Buat Qrcode Baru</h1>
+        <a href="{{ route('qrcode.index') }}" class="btn btn-secondary">
             <i class="far fa-arrow-alt-circle-left"></i>
             Kembali
         </a>
@@ -16,9 +16,8 @@
         <div class="col-lg-6">
             <div class="card shadow mb-4 border-bottom-success shadow">
                 <div class="card-body">
-                    <form action="{{ route('kategori.update', $kategori->id) }}" method="POST">
+                    <form action="{{ route('qrcode.store') }}" method="POST">
                         @csrf
-                        @method('PATCH')
                         <div class="form-group">
                             <label class="font-weight-bold text-gray-900">Title</label>
                             @error('title')
@@ -27,12 +26,21 @@
                                     {{ $message }}
                                 </span>
                             @enderror
-                            <input type="text" name="title" class="form-control" placeholder="Title"
-                                value="{{ $kategori->title }}">
+                            <input type="text" name="title" class="form-control" placeholder="Title">
+                        </div>
+                        <div class="form-group">
+                            <label class="font-weight-bold text-gray-900">Link</label>
+                            @error('link')
+                                <span class="text-danger font-italic">
+                                    <i class="fas fa-exclamation"></i>
+                                    {{ $message }}
+                                </span>
+                            @enderror
+                            <input type="text" name="link" class="form-control" placeholder="https://. . . .">
                         </div>
                         <button type="submit" class="btn btn-green float-right">
-                            <i class="fas fa-sync-alt"></i>
-                            Update
+                            <i class="fas fa-plus-circle"></i>
+                            Tambah
                         </button>
                     </form>
                 </div>

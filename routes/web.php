@@ -4,7 +4,9 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\PenggunaController;
 use App\Http\Controllers\PostinganController;
+use App\Http\Controllers\QrcodeController;
 use Illuminate\Support\Facades\Route;
+use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,8 +32,6 @@ Route::middleware(['auth'])->group(function () {
     // Post Controller
     Route::resource('dashboard/postingan', PostinganController::class);
     // Pengguna Controller
-    Route::resource('dashboard/pengguna', PenggunaController::class);
-
     Route::middleware(['role:admin'])->group(function () {
         Route::get('dashboard/pengguna', [PenggunaController::class, 'index'])->name('pengguna.index');
         Route::get('dashboard/pengguna/create', [PenggunaController::class, 'create'])->name('pengguna.create');
@@ -39,4 +39,7 @@ Route::middleware(['auth'])->group(function () {
     });
     Route::get('dashboard/pengguna/{pengguna}/edit', [PenggunaController::class, 'edit'])->name('pengguna.edit');
     Route::patch('dashboard/pengguna/{pengguna}', [PenggunaController::class, 'update'])->name('pengguna.update');
+
+    // QRCODE Controller
+    Route::resource('dashboard/qrcode', QrcodeController::class);
 });

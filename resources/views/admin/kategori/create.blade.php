@@ -38,16 +38,3 @@
         </div>
     </div>
 @endsection
-
-@push('styles')
-    <link rel="stylesheet" href="https://cdn.datatables.net/2.0.0/css/dataTables.dataTables.css" />
-@endpush
-
-@push('scripts')
-    <script>
-        $(document).ready(function() {
-            $('#myTable').DataTable();
-        });
-    </script>
-    <script src="https://cdn.datatables.net/2.0.0/js/dataTables.js"></script>
-@endpush
