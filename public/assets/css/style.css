@@ -1,0 +1,25 @@
+.breadcrumb-background {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://matob.web.id/note/wp-content/uploads/sites/3/2020/03/pertanian-e1583625395120.jpg');
+    background-size: cover; /* Membuat gambar latar belakang menutupi seluruh area */
+    background-position: center; /* Posisi gambar latar belakang di tengah */
+    background-repeat: no-repeat; /* Menghindari pengulangan gambar latar belakang */
+    padding: 100px 0; /* Sesuaikan padding sesuai kebutuhan Anda */
+    /* Tambahan CSS lainnya sesuai kebutuhan */
+}
+
+.breadcrumb-item a{
+    color: white;
+}
+
+.breadcrumb-title {
+    color: white;
+}
+
+.breadcrumb-item.active {
+    color: white;
+    font-weight: bold;
+}
+
+.breadcrumb-item+.breadcrumb-item::before {
+    color: white;
+}
