@@ -115,8 +115,16 @@
     <script>
         tinymce.init({
             selector: 'textarea#default',
-            promotion: false
+            promotion: false,
+            plugins: [
+                'advlist', 'autolink', 'link', 'image', 'lists', 'charmap', 'preview', 'anchor', 'pagebreak',
+                'searchreplace', 'wordcount', 'visualblocks', 'visualchars', 'code', 'fullscreen',
+                'insertdatetime',
+                'media', 'table', 'emoticons', 'help'
+            ],
+            toolbar: 'undo redo | styles | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | print preview media | forecolor backcolor emoticons',
         });
+
 
         // Add the following code if you want the name of the file appear on select
         $(".custom-file-input").on("change", function() {

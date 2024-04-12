@@ -69,7 +69,7 @@ class PostinganController extends Controller
                 $image = $request['thumbnail'];
                 $imageName = uniqid(6) . '.png';
                 // Resize Image
-                $thumbnail = Image::make($image->getRealPath())->resize(800, 600);
+                $thumbnail = Image::make($image->getRealPath());
                 // Save Image
                 $thumbPath = $path . $imageName;
                 $thumbnail = Image::make($thumbnail)->save($thumbPath);
@@ -93,6 +93,7 @@ class PostinganController extends Controller
             DB::commit();
         }
     }
+
 
     /**
      * Display the specified resource.
@@ -153,7 +154,7 @@ class PostinganController extends Controller
                 $image = $request['thumbnail'];
                 $imageName = uniqid(6) . '.png';
                 // Resize Image
-                $thumbnail = Image::make($image->getRealPath())->resize(800, 600);
+                $thumbnail = Image::make($image->getRealPath());
                 // Save Image
                 $thumbPath = $path . $imageName;
                 $thumbnail = Image::make($thumbnail)->save($thumbPath);
@@ -208,5 +209,25 @@ class PostinganController extends Controller
         } finally {
             DB::commit();
         }
+    }
+
+    public function upload(Request $request)
+    {
+        $path = public_path() . '/postingan/textarea/';
+        if (!file_exists($path)) {
+            File::makeDirectory($path, 0775, true, true);
+        }
+        // New Thumbnail
+        $image = $request->file('file');
+        $imageName = uniqid(6) . '.png';
+        // Resize Image
+        $thumbnail = Image::make($image->getRealPath());
+        // Save Image
+        $thumbPath = $path . $imageName;
+        $thumbnail = Image::make($thumbnail)->save($thumbPath);
+
+        // Return URL gambar yang diunggah
+        $url = $path . $imageName;
+        return response()->json(['location' => $url]);
     }
 }

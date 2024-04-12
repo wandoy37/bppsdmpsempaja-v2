@@ -24,6 +24,7 @@ use SimpleSoftwareIO\QrCode\Facades\QrCode;
 //     return view('welcome');
 // });
 
+
 Route::controller(SiteController::class)->group(function () {
     // Beranda
     Route::get('/beranda', 'beranda')->name('site.beranda');
@@ -31,6 +32,7 @@ Route::controller(SiteController::class)->group(function () {
     Route::get('/profil', 'profil')->name('site.profil');
     // Berita
     Route::get('/berita', 'berita')->name('site.berita');
+    Route::get('/berita/{slug}', 'show')->name('site.berita.show');
     // Informasi Publik
     Route::get('/info-publik/berkala', 'berkala')->name('site.info.publik.berkala');
     Route::get('/info-publik/serta-merta', 'serta_merta')->name('site.info.publik.serta.merta');
@@ -48,6 +50,7 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('/dashboard/kategori', KategoriController::class);
     // Post Controller
     Route::resource('dashboard/postingan', PostinganController::class);
+
     // Pengguna Controller
     Route::middleware(['role:admin'])->group(function () {
         Route::get('dashboard/pengguna', [PenggunaController::class, 'index'])->name('pengguna.index');

@@ -22,6 +22,11 @@
 
     {{-- CSS FILES CUSTOM --}}
     <link href="{{ asset('assets') }}/css/style.css" rel="stylesheet">
+    <style>
+        :root {
+            --breadcrumb-background: url('{{ asset('img/landscape-green-color.png') }}');
+        }
+    </style>
     <!--
 
 TemplateMo 581 Kind Heart Charity

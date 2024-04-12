@@ -1,5 +1,5 @@
 .breadcrumb-background {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://matob.web.id/note/wp-content/uploads/sites/3/2020/03/pertanian-e1583625395120.jpg');
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), var(--breadcrumb-background);
     background-size: cover; /* Membuat gambar latar belakang menutupi seluruh area */
     background-position: center; /* Posisi gambar latar belakang di tengah */
     background-repeat: no-repeat; /* Menghindari pengulangan gambar latar belakang */
@@ -23,3 +23,18 @@
 .breadcrumb-item+.breadcrumb-item::before {
     color: white;
 }
+
+/* Recent Background */
+.recent-background {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://matob.web.id/note/wp-content/uploads/sites/3/2020/03/pertanian-e1583625395120.jpg');
+    background-size: cover; /* Membuat gambar latar belakang menutupi seluruh area */
+    background-position: center; /* Posisi gambar latar belakang di tengah */
+    background-repeat: no-repeat; /* Menghindari pengulangan gambar latar belakang */
+    padding: 50px 0; /* Sesuaikan padding sesuai kebutuhan Anda */
+    /* Tambahan CSS lainnya sesuai kebutuhan */
+}
+
+/* Berita */
+ul#menu li {
+    display:inline;
+  }

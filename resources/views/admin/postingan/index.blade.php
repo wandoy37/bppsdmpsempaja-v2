@@ -58,7 +58,7 @@
                                         <td class="align-middle">
                                             <small>{{ $postingan->created_at->format('d/m/Y') }}</small>
                                             <br>
-                                            {{ $postingan->title }}
+                                            {{ $postingan->title }} - {{ $postingan->slug }}
                                         </td>
                                         <td class="align-middle">{{ $postingan->kategori->title }}</td>
                                         <td class="text-center">
