@@ -25,7 +25,7 @@ class PostinganFactory extends Factory
             'title' => $this->faker->sentence(3),
             'slug' => mt_rand(1000, 9999),
             'konten' => $this->faker->text(1000),
-            'thumbnail' => 'dummy_thumbnail.jpg',
+            'thumbnail' => 'http://bppsdmpsempaja-v2.test/storage/photos/1/tes-dummy.jpg',
             'status' => 'publish',
             'kategori_id' => mt_rand(4, 7),
             'user_id' => '1',
