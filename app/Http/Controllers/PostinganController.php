@@ -44,7 +44,8 @@ class PostinganController extends Controller
             [
                 'title' => 'required',
                 'konten' => 'required',
-                'thumbnail' => 'required',
+                // 'thumbnail' => 'required',
+                'filepath' => 'required',
                 'kategori' => 'required',
                 'created_at' => 'required',
             ],
@@ -79,7 +80,7 @@ class PostinganController extends Controller
                 'title' => $request->title,
                 'slug' => Str::slug($request->title, '-') . '-' . mt_rand(1000, 9999),
                 'konten' => $request->konten,
-                'thumbnail' => $imageName,
+                'thumbnail' => $request->filepath,
                 'status' => $request->status,
                 'kategori_id' => $request->kategori,
                 'user_id' => Auth::user()->id,
@@ -127,6 +128,7 @@ class PostinganController extends Controller
                 'title' => 'required',
                 'konten' => 'required',
                 'kategori' => 'required',
+                'filepath' => 'required',
             ],
             [],
         );
@@ -174,7 +176,7 @@ class PostinganController extends Controller
                 'title' => $request->title,
                 'slug' => $slug,
                 'konten' => $request->konten,
-                'thumbnail' => $imageName ?? $postingan->thumbnail,
+                'thumbnail' => $request->filepath,
                 'status' => $request->status,
                 'kategori_id' => $request->kategori,
                 'user_id' => Auth::user()->id,
@@ -198,8 +200,8 @@ class PostinganController extends Controller
         $postingan = Postingan::find($id);
         DB::beginTransaction();
         try {
-            $path = public_path() . '/postingan/thumbnail/';
-            File::delete($path . $postingan->thumbnail);
+            // $path = public_path() . '/postingan/thumbnail/';
+            // File::delete($path . $postingan->thumbnail);
 
             $postingan->delete($postingan);
             return redirect()->route('postingan.index')->with('success', 'Postingan telah dihapus.');

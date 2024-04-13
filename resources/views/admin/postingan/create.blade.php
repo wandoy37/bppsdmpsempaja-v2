@@ -64,7 +64,7 @@
                         </div>
                         <div class="row">
                             <div class="col-lg-6">
-                                <div class="form-group">
+                                {{-- <div class="form-group">
                                     <label class="font-weight-bold text-gray-900">thumbnail</label>
                                     @error('thumbnail')
                                         <span class="text-danger font-italic">
@@ -76,6 +76,26 @@
                                         <input type="file" name="thumbnail" class="custom-file-input" id="customFile">
                                         <label class="custom-file-label" for="customFile">Choose file</label>
                                     </div>
+                                </div> --}}
+                                <div class="form-group">
+                                    <label class="font-weight-bold text-gray-900">Thumbnail</label>
+                                    @error('filepath')
+                                        <span class="text-danger font-italic">
+                                            <i class="fas fa-exclamation"></i>
+                                            {{ $message }}
+                                        </span>
+                                    @enderror
+                                    <div class="input-group">
+                                        <span class="input-group-btn">
+                                            <button id="lfm" type="button" data-input="data_lfm"
+                                                data-preview="holder" class="btn btn-primary">
+                                                <i class="fa fa-picture-o"></i> Choose
+                                            </button>
+                                        </span>
+                                        <input id="data_lfm" class="form-control" type="text" name="filepath"
+                                            value="{{ old('filepath') }}">
+                                    </div>
+                                    <div id="holder" style="margin-top:15px;max-height:100px;"></div>
                                 </div>
                             </div>
                             <div class="col-lg-6">
@@ -104,11 +124,22 @@
 @endsection
 
 @push('scripts')
+    <script src="{{ asset('vendor/laravel-filemanager/js/stand-alone-button.js') }}"></script>
     <script>
         tinymce.init({
             selector: 'textarea#default',
-            promotion: false
+            promotion: false,
+            plugins: [
+                'advlist', 'autolink', 'link', 'image', 'lists', 'charmap', 'preview', 'anchor', 'pagebreak',
+                'searchreplace', 'wordcount', 'visualblocks', 'visualchars', 'code', 'fullscreen',
+                'insertdatetime',
+                'media', 'table', 'emoticons', 'help'
+            ],
+            toolbar: 'undo redo | styles | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | print preview media | forecolor backcolor emoticons',
         });
+
+        // Event Stand alone filemanager
+        $('#lfm').filemanager('image');
 
         // Add the following code if you want the name of the file appear on select
         $(".custom-file-input").on("change", function() {

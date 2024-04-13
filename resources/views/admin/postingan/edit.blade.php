@@ -18,7 +18,6 @@
             Kembali
         </a>
     </div>
-
     <div class="row">
         <div class="col-lg-12">
             <div class="card shadow mb-4 border-bottom-success shadow">
@@ -69,7 +68,7 @@
                         </div>
                         <div class="row">
                             <div class="col-lg-6">
-                                <div class="form-group">
+                                {{-- <div class="form-group">
                                     <label class="font-weight-bold text-gray-900">thumbnail</label>
                                     <br>
                                     <small>{{ $postingan->thumbnail }}</small>
@@ -83,13 +82,30 @@
                                         <input type="file" name="thumbnail" class="custom-file-input" id="customFile">
                                         <label class="custom-file-label" for="customFile">Choose file</label>
                                     </div>
+                                </div> --}}
+
+
+                                <div class="form-group">
+                                    <label class="font-weight-bold text-gray-900">Thumbnail</label>
+                                    <div class="input-group">
+                                        <span class="input-group-btn">
+                                            <button id="lfm" type="button" data-input="data_lfm"
+                                                data-preview="holder" class="btn btn-primary">
+                                                <i class="fa fa-picture-o"></i> Choose
+                                            </button>
+                                        </span>
+                                        <input id="data_lfm" class="form-control" type="text" name="filepath"
+                                            value="{{ old('filepath', $postingan->thumbnail) }}">
+                                    </div>
+                                    <div id="holder" style="margin-top:15px;max-height:100px;"></div>
                                 </div>
+
+
                             </div>
                             <div class="col-lg-6">
                                 <div class="form-group">
-                                    <label class="font-weight-bold text-gray-900">Tanggal</label>
-                                    <br>
-                                    <small>{{ $postingan->created_at->format('d/m/Y') }}</small>
+                                    <label class="font-weight-bold text-gray-900">Tanggal
+                                        (<i class="text-info">{{ $postingan->created_at->format('d/m/Y') }}</i>)</label>
                                     @error('created_at')
                                         <span class="text-danger font-italic">
                                             <i class="fas fa-exclamation"></i>
@@ -112,6 +128,7 @@
 @endsection
 
 @push('scripts')
+    <script src="{{ asset('vendor/laravel-filemanager/js/stand-alone-button.js') }}"></script>
     <script>
         tinymce.init({
             selector: 'textarea#default',
@@ -124,6 +141,9 @@
             ],
             toolbar: 'undo redo | styles | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | print preview media | forecolor backcolor emoticons',
         });
+
+        // Event Stand alone filemanager
+        $('#lfm').filemanager('image');
 
 
         // Add the following code if you want the name of the file appear on select

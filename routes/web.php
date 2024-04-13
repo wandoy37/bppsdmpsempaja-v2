@@ -25,6 +25,7 @@ use SimpleSoftwareIO\QrCode\Facades\QrCode;
 // });
 
 
+
 Route::controller(SiteController::class)->group(function () {
     // Beranda
     Route::get('/beranda', 'beranda')->name('site.beranda');
@@ -43,6 +44,10 @@ Route::controller(SiteController::class)->group(function () {
 });
 
 Route::middleware(['auth'])->group(function () {
+    Route::group(['prefix' => 'filemanager', 'middleware' => ['web', 'auth']], function () {
+        \UniSharp\LaravelFilemanager\Lfm::routes();
+    });
+
     // Dashboard
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
 

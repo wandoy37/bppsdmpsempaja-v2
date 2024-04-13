@@ -62,8 +62,7 @@
                                         </td>
                                         <td class="align-middle">{{ $postingan->kategori->title }}</td>
                                         <td class="text-center">
-                                            <img src="{{ asset('postingan/thumbnail/' . $postingan->thumbnail) }}"
-                                                class="img-fluid" alt="">
+                                            <img src="{{ $postingan->thumbnail }}" class="img-fluid" alt="">
                                         </td>
                                         <td class="align-middle">{{ $postingan->status }}</td>
                                         <td class="text-center align-middle">
