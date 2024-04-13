@@ -1,5 +1,9 @@
 @extends('site.layouts.app')
 
+@section('title')
+    Kontak
+@endsection
+
 @section('content')
     <section class="breadcrumb-background">
         <div class="container">

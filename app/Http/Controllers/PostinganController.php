@@ -20,7 +20,7 @@ class PostinganController extends Controller
      */
     public function index()
     {
-        $postingans = Postingan::all();
+        $postingans = Postingan::orderBy('id', 'DESC')->get();
         return view('admin.postingan.index', compact('postingans'));
     }
 

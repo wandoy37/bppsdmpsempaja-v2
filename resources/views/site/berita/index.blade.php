@@ -1,5 +1,9 @@
 @extends('site.layouts.app')
 
+@section('title')
+    Berita
+@endsection
+
 @section('content')
     <section class="breadcrumb-background">
         <div class="container">
@@ -21,208 +25,80 @@
         <div class="container">
             <div class="row">
 
-                <div class="col-lg-7 col-12">
-                    <div class="news-block">
-                        <div class="news-block-top">
-                            <a href="news-detail.html">
-                                <img src="{{ asset('assets') }}/images/news/medium-shot-volunteers-with-clothing-donations.jpg"
-                                    class="news-image img-fluid" alt="">
-                            </a>
-
-                            <div class="news-category-block">
-                                <a href="#" class="category-block-link">
-                                    Lifestyle,
-                                </a>
-
-                                <a href="#" class="category-block-link">
-                                    Clothing Donation
-                                </a>
-                            </div>
-                        </div>
-
-                        <div class="news-block-info">
-                            <div class="d-flex mt-2">
-                                <div class="news-block-date">
-                                    <p>
-                                        <i class="bi-calendar4 custom-icon me-1"></i>
-                                        October 18, 2036
-                                    </p>
-                                </div>
-
-                                <div class="news-block-author mx-5">
-                                    <p>
-                                        <i class="bi-person custom-icon me-1"></i>
-                                        By Admin
-                                    </p>
-                                </div>
-
-                                <div class="news-block-comment">
-                                    <p>
-                                        <i class="bi-chat-left custom-icon me-1"></i>
-                                        32 Comments
-                                    </p>
-                                </div>
-                            </div>
-
-                            <div class="news-block-title mb-2">
-                                <h4><a href="news-detail.html" class="news-block-title-link">Clothing donation to
-                                        urban area</a></h4>
-                            </div>
-
-                            <div class="news-block-body">
-                                <p>This is a Bootstrap 5.2.2 CSS template for charity organization websites. You can
-                                    feel free to use it. Please tell your friends about TemplateMo website. Thank
-                                    you.</p>
-                            </div>
-                        </div>
+                <div class="col-lg-8">
+                    <div id="data-wrapper">
+                        @include('site.berita.data')
                     </div>
 
-                    <div class="news-block mt-3">
-                        <div class="news-block-top">
-                            <a href="news-detail.html">
-                                <img src="{{ asset('assets') }}/images/news/medium-shot-people-collecting-foodstuff.jpg"
-                                    class="news-image img-fluid" alt="">
-                            </a>
-
-                            <div class="news-category-block">
-                                <a href="#" class="category-block-link">
-                                    Food,
-                                </a>
-
-                                <a href="#" class="category-block-link">
-                                    Donation,
-                                </a>
-
-                                <a href="#" class="category-block-link">
-                                    Caring
-                                </a>
-                            </div>
-                        </div>
-
-                        <div class="news-block-info">
-                            <div class="d-flex mt-2">
-                                <div class="news-block-date">
-                                    <p>
-                                        <i class="bi-calendar4 custom-icon me-1"></i>
-                                        October 12, 2036
-                                    </p>
-                                </div>
-
-                                <div class="news-block-author mx-5">
-                                    <p>
-                                        <i class="bi-person custom-icon me-1"></i>
-                                        By Admin
-                                    </p>
-                                </div>
-
-                                <div class="news-block-comment">
-                                    <p>
-                                        <i class="bi-chat-left custom-icon me-1"></i>
-                                        35 Comments
-                                    </p>
-                                </div>
-                            </div>
-
-                            <div class="news-block-title mb-2">
-                                <h4><a href="news-detail.html" class="news-block-title-link">Food donation area</a>
-                                </h4>
-                            </div>
-
-                            <div class="news-block-body">
-                                <p>You are not allowed to redistribute this template ZIP file on any other template
-                                    collection website. Please <a href="https://templatemo.com/contact"
-                                        target="_blank">contact TemplateMo</a> for more information.</p>
-                            </div>
-                        </div>
+                    <div class="text-center">
+                        <button class="custom-btn custom-border-btn btn inactive load-more-data"><i
+                                class="fa fa-refresh"></i> Tampilkan Lebih Banyak Berita...</button>
+                    </div>
+                    <div class="auto-load text-center" style="display: none;">
+                        <svg version="1.1" id="L9" xmlns="http://www.w3.org/2000/svg"
+                            xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" height="60" viewBox="0 0 100 100"
+                            enable-background="new 0 0 0 0" xml:space="preserve">
+                            <path fill="#000"
+                                d="M73,50c0-12.7-10.3-23-23-23S27,37.3,27,50 M30.9,50c0-10.5,8.5-19.1,19.1-19.1S69.1,39.5,69.1,50">
+                                <animateTransform attributeName="transform" attributeType="XML" type="rotate"
+                                    dur="1s" from="0 50 50" to="360 50 50" repeatCount="indefinite" />
+                            </path>
+                        </svg>
                     </div>
                 </div>
 
-                <div class="col-lg-4 col-12 mx-auto">
-                    <form class="custom-form search-form" action="#" method="post" role="form">
-                        <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+                <div class="col-lg-4 mx-auto">
+                    <form class="custom-form search-form" action="{{ route('site.berita') }}" method="GET">
+                        <input class="form-control" type="text" placeholder="Search" name="search"
+                            value="{{ old('search') }}">
 
                         <button type="submit" class="form-control">
                             <i class="bi-search"></i>
                         </button>
                     </form>
 
-                    <h5 class="mt-5 mb-3">Recent news</h5>
+                    <h5 class="mt-5 mb-3">Berita Lainnya</h5>
 
-                    <div class="news-block news-block-two-col d-flex mt-4">
-                        <div class="news-block-two-col-image-wrap">
-                            <a href="news-detail.html">
-                                <img src="{{ asset('assets') }}/images/news/africa-humanitarian-aid-doctor.jpg"
-                                    class="news-image img-fluid" alt="">
-                            </a>
-                        </div>
+                    @if (count($recentPostingans) > 0)
+                        @foreach ($recentPostingans as $recent)
+                            <div class="news-block news-block-two-col d-flex mt-4">
+                                <div class="news-block-two-col-image-wrap">
+                                    <a href="{{ route('site.berita.show', $recent->slug) }}">
+                                        <img src="{{ $recent->thumbnail }}" class="img-fluid" alt="">
+                                    </a>
+                                </div>
+                                <div class="news-block-two-col-info">
+                                    <div class="news-block-title mb-2">
+                                        <a href="{{ route('site.berita.show', $recent->slug) }}"
+                                            class="news-block-title-link">
+                                            {{ str_word_count($recent->title) > 4 ? implode(' ', array_slice(explode(' ', $recent->title), 0, 4)) . '...' : $recent->title }}
+                                            - {{ $recent->slug }}
+                                        </a>
+                                    </div>
 
-                        <div class="news-block-two-col-info">
-                            <div class="news-block-title mb-2">
-                                <h6><a href="news-detail.html" class="news-block-title-link">Food donation
-                                        area</a>
-                                </h6>
+                                    <div class="news-block-date">
+                                        <p>
+                                            <i class="bi-calendar4 custom-icon me-1"></i>
+                                            {{ $recent->created_at->format('d, F Y') }}
+                                        </p>
+                                    </div>
+                                </div>
                             </div>
+                        @endforeach
+                    @else
+                        <p>No results found.</p>
+                    @endif
 
-                            <div class="news-block-date">
-                                <p>
-                                    <i class="bi-calendar4 custom-icon me-1"></i>
-                                    October 16, 2036
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="news-block news-block-two-col d-flex mt-4">
-                        <div class="news-block-two-col-image-wrap">
-                            <a href="news-detail.html">
-                                <img src="{{ asset('assets') }}/images/news/close-up-happy-people-working-together.jpg"
-                                    class="news-image img-fluid" alt="">
-                            </a>
-                        </div>
-
-                        <div class="news-block-two-col-info">
-                            <div class="news-block-title mb-2">
-                                <h6><a href="news-detail.html" class="news-block-title-link">Volunteering
-                                        Clean</a>
-                                </h6>
-                            </div>
-
-                            <div class="news-block-date">
-                                <p>
-                                    <i class="bi-calendar4 custom-icon me-1"></i>
-                                    October 24, 2036
-                                </p>
-                            </div>
-                        </div>
-                    </div>
 
                     <div class="category-block d-flex flex-column">
-                        <h5 class="mb-3">Categories</h5>
-
-                        <a href="#" class="category-block-link">
-                            Drinking water
-                            <span class="badge">20</span>
-                        </a>
-
-                        <a href="#" class="category-block-link">
-                            Food Donation
-                            <span class="badge">30</span>
-                        </a>
-
-                        <a href="#" class="category-block-link">
-                            Children Education
-                            <span class="badge">10</span>
-                        </a>
-
-                        <a href="#" class="category-block-link">
-                            Poverty Development
-                            <span class="badge">15</span>
-                        </a>
-
-                        <a href="#" class="category-block-link">
-                            Clothing Donation
-                            <span class="badge">20</span>
-                        </a>
+                        <h5 class="mb-3">Kategori Berita</h5>
+                        @foreach ($kategories as $kategori)
+                            <a href="{{ route('site.kategori.berita.index', $kategori->slug) }}"
+                                class="category-block-link">
+                                {{ $kategori->title }}
+                                <span class="badge">{{ $kategori->postingans->count() }}</span>
+                            </a>
+                        @endforeach
                     </div>
 
                     <div class="tags-block">
@@ -247,3 +123,42 @@
         </div>
     </section>
 @endsection
+
+@push('scripts')
+    <script>
+        var ENDPOINT = "{{ route('site.berita') }}";
+        var page = 1;
+
+        $(".load-more-data").click(function() {
+            page++;
+            infinteLoadMore(page);
+        });
+
+        /*------------------------------------------
+        --------------------------------------------
+        call infinteLoadMore()
+        --------------------------------------------
+        --------------------------------------------*/
+        function infinteLoadMore(page) {
+            $.ajax({
+                    url: ENDPOINT + "?page=" + page,
+                    datatype: "html",
+                    type: "get",
+                    beforeSend: function() {
+                        $('.auto-load').show();
+                    }
+                })
+                .done(function(response) {
+                    if (response.html == '') {
+                        $('.auto-load').html("We don't have more data to display :(");
+                        return;
+                    }
+                    $('.auto-load').hide();
+                    $("#data-wrapper").append(response.html);
+                })
+                .fail(function(jqXHR, ajaxOptions, thrownError) {
+                    console.log('Server error occured');
+                });
+        }
+    </script>
+@endpush

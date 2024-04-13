@@ -1,5 +1,9 @@
 @extends('site.layouts.app')
 
+@section('title')
+    Berita
+@endsection
+
 @section('content')
     <section class="hero-section hero-section-full-height">
         <div class="container-fluid">
@@ -51,69 +55,66 @@
                 </div>
 
                 <div class="col-lg-8">
-                    @foreach ($lastPosts as $post)
-                        <div class="news-block">
-                            <div class="news-block-top">
-                                <a href="news-detail.html">
-                                    <img src="{{ asset('postingan/thumbnail/' . $post->thumbnail) }}"
-                                        class="news-image img-fluid" alt="">
-                                </a>
-
-                                <div class="news-category-block">
-                                    <a href="#" class="category-block-link">
-                                        {{ $post->kategori->title }}
+                    @if (count($lastPosts) > 0)
+                        @foreach ($lastPosts as $post)
+                            <div class="news-block">
+                                <div class="news-block-top">
+                                    <a href="{{ route('site.berita.show', $post->slug) }}">
+                                        <img src="{{ $post->thumbnail }}" class="news-image img-fluid" alt="">
                                     </a>
-                                </div>
-                            </div>
-
-                            <div class="news-block-info">
-                                <div class="d-flex mt-2">
-                                    <div class="news-block-date">
-                                        <p>
-                                            <i class="bi-calendar4 custom-icon me-1"></i>
-                                            {{ $post->created_at->format('d, F Y') }}
-                                        </p>
-                                    </div>
-
-                                    <div class="news-block-author mx-5">
-                                        <p>
-                                            <i class="bi-person custom-icon me-1"></i>
-                                            By Admin
-                                        </p>
-                                    </div>
-
-                                    {{-- <div class="news-block-comment">
-                                        <p>
-                                            <i class="bi-chat-left custom-icon me-1"></i>
-                                            32 Comments
-                                        </p>
-                                    </div> --}}
-                                </div>
-
-                                <div class="news-block-title mb-2">
-                                    <h4>
-                                        <a href="{{ route('site.berita.show', $post->slug) }}"
-                                            class="news-block-title-link">
-                                            {{ $post->title }} - {{ $post->slug }}
+                                    <div class="news-category-block">
+                                        <a href="{{ route('site.kategori.berita.index', $post->kategori->slug) }}"
+                                            class="category-block-link">
+                                            {{ $post->kategori->title }}
                                         </a>
-                                    </h4>
+                                    </div>
                                 </div>
+                                <div class="news-block-info">
+                                    <div class="d-flex mt-2">
+                                        <div class="news-block-date">
+                                            <p>
+                                                <i class="bi-calendar4 custom-icon me-1"></i>
+                                                {{ $post->created_at->format('d, F Y') }}
+                                            </p>
+                                        </div>
 
-                                <div class="news-block-body">
-                                    <p>
-                                        {{ str_word_count($post->konten) > 20 ? implode(' ', array_slice(explode(' ', $post->konten), 0, 20)) . '...' : $post->konten }}
-                                        <a href="{{ route('site.berita.show', $post->slug) }}">Baca Selengkapnya</a>
-                                    </p>
+                                        <div class="news-block-author mx-5">
+                                            <p>
+                                                <i class="bi-person custom-icon me-1"></i>
+                                                By Admin
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <div class="news-block-title mb-2">
+                                        <h4>
+                                            <a href="{{ route('site.berita.show', $post->slug) }}"
+                                                class="news-block-title-link">
+                                                {{ $post->title }} - {{ $post->slug }}
+                                            </a>
+                                        </h4>
+                                    </div>
+
+                                    <div class="news-block-body">
+                                        <p>
+                                            {{ str_word_count($post->konten) > 20 ? implode(' ', array_slice(explode(' ', $post->konten), 0, 20)) . '...' : $post->konten }}
+                                            <a href="{{ route('site.berita.show', $post->slug) }}">Baca Selengkapnya</a>
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    @endforeach
+                        @endforeach
+                    @else
+                        <h4>
+                            No results found.
+                        </h4>
+                    @endif
                 </div>
 
                 <div class="col-lg-4 mx-auto">
-                    <form class="custom-form search-form" action="#" method="post" role="form">
-                        <h5 class="mt-5 mb-3">Cari Berita</h5>
-                        <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+                    <form class="custom-form search-form" action="{{ route('site.berita') }}" method="GET">
+                        <input class="form-control" type="text" placeholder="Search" name="search"
+                            value="{{ old('search') }}">
 
                         <button type="submit" class="form-control">
                             <i class="bi-search"></i>
@@ -122,37 +123,42 @@
 
                     <h5 class="mt-5 mb-3">Berita Lainnya</h5>
 
-                    @foreach ($recentPostingans as $recent)
-                        <div class="news-block news-block-two-col d-flex mt-4">
-                            <div class="news-block-two-col-image-wrap">
-                                <a href="{{ route('site.berita.show', $recent->slug) }}">
-                                    <img src="{{ asset('postingan/thumbnail/' . $recent->thumbnail) }}" class="img-fluid"
-                                        alt="">
-                                </a>
-                            </div>
-                            <div class="news-block-two-col-info">
-                                <div class="news-block-title mb-2">
-                                    <a href="{{ route('site.berita.show', $recent->slug) }}" class="news-block-title-link">
-                                        {{ str_word_count($recent->title) > 4 ? implode(' ', array_slice(explode(' ', $recent->title), 0, 4)) . '...' : $recent->title }}
-                                        - {{ $recent->id }}
+                    @if (count($recentPostingans) > 0)
+                        @foreach ($recentPostingans as $recent)
+                            <div class="news-block news-block-two-col d-flex mt-4">
+                                <div class="news-block-two-col-image-wrap">
+                                    <a href="{{ route('site.berita.show', $recent->slug) }}">
+                                        <img src="{{ $recent->thumbnail }}" class="img-fluid" alt="">
                                     </a>
                                 </div>
+                                <div class="news-block-two-col-info">
+                                    <div class="news-block-title mb-2">
+                                        <a href="{{ route('site.berita.show', $recent->slug) }}"
+                                            class="news-block-title-link">
+                                            {{ str_word_count($recent->title) > 4 ? implode(' ', array_slice(explode(' ', $recent->title), 0, 4)) . '...' : $recent->title }}
+                                            - {{ $recent->slug }}
+                                        </a>
+                                    </div>
 
-                                <div class="news-block-date">
-                                    <p>
-                                        <i class="bi-calendar4 custom-icon me-1"></i>
-                                        {{ $recent->created_at->format('d, F Y') }}
-                                    </p>
+                                    <div class="news-block-date">
+                                        <p>
+                                            <i class="bi-calendar4 custom-icon me-1"></i>
+                                            {{ $recent->created_at->format('d, F Y') }}
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    @endforeach
+                        @endforeach
+                    @else
+                        <p>No results found.</p>
+                    @endif
 
 
                     <div class="category-block d-flex flex-column">
                         <h5 class="mb-3">Kategori Berita</h5>
                         @foreach ($kategories as $kategori)
-                            <a href="#" class="category-block-link">
+                            <a href="{{ route('site.kategori.berita.index', $kategori->slug) }}"
+                                class="category-block-link">
                                 {{ $kategori->title }}
                                 <span class="badge">{{ $kategori->postingans->count() }}</span>
                             </a>

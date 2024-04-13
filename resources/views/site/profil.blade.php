@@ -1,5 +1,9 @@
 @extends('site.layouts.app')
 
+@section('title')
+    Profil
+@endsection
+
 @section('content')
     <section class="breadcrumb-background">
         <div class="container">

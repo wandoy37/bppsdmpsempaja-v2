@@ -11,8 +11,8 @@ class SiteController extends Controller
     public function beranda()
     {
         $kategories = Kategori::all();
-        $lastPosts = Postingan::latest()->take(2)->get();;
-        $recentPostingans = Postingan::latest()->skip(2)->take(2)->get();
+        $lastPosts = Postingan::orderBy('id', 'DESC')->take(2)->get();
+        $recentPostingans = Postingan::orderBy('id', 'DESC')->skip(2)->take(2)->get();
         return view('site.beranda', compact('kategories', 'lastPosts', 'recentPostingans'));
     }
 
@@ -21,10 +21,41 @@ class SiteController extends Controller
         return view('site.profil');
     }
 
-    // Function Berita 
-    public function berita()
+    // Function Berita Index
+    public function berita(Request $request)
     {
-        return view('site.berita.index');
+        // Menginisialisasi query builder
+        $postingans = Postingan::where('status', 'publish');
+        // Mencari data berdasarkan nilai search
+        if (request('search')) {
+            $postingans->where('title', 'LIKE', '%' . request('search') . '%');
+        }
+        // Mengambil hasil dan membatasi
+        $postingans = $postingans->orderBy('id', 'DESC')->paginate(5);
+
+        if ($request->ajax()) {
+            $view = view('site.berita.data', compact('postingans'))->render();
+
+            return response()->json(['html' => $view]);
+        }
+
+        $kategories = Kategori::all();
+        $recentPostingans = Postingan::orderBy('id', 'DESC')->skip(2)->take(2)->get();
+
+        return view('site.berita.index', compact('postingans', 'recentPostingans', 'kategories'));
+    }
+
+    // Kategori Berita Index
+    public function kategori_berita_index(Request $request, $slug)
+    {
+        $kategori = Kategori::where('slug', $slug)->first();
+        $postingans = Postingan::where('kategori_id', $kategori->id)->paginate(5);
+        if ($request->ajax()) {
+            $view = view('site.berita.data', compact('postingans'))->render();
+
+            return response()->json(['html' => $view]);
+        }
+        return view('site.berita.kategori', compact('kategori', 'postingans'));
     }
 
     public function show($slug)

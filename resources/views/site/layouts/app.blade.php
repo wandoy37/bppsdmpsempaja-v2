@@ -11,7 +11,7 @@
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="{{ asset('img/logo-kaltim.svg') }}">
 
-    <title>UPTD BPPSDMP KALTIM</title>
+    <title>UPTD BPPSDMP KALTIM - @yield('title')</title>
 
     <!-- CSS FILES -->
     <link href="{{ asset('assets') }}/css/bootstrap.min.css" rel="stylesheet">
@@ -149,6 +149,8 @@ https://templatemo.com/tm-581-kind-heart-charity
     {{-- <script src="{{ asset('assets') }}/js/click-scroll.js"></script> --}}
     <script src="{{ asset('assets') }}/js/counter.js"></script>
     <script src="{{ asset('assets') }}/js/custom.js"></script>
+
+    @stack('scripts')
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {

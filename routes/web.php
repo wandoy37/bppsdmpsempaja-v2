@@ -29,16 +29,22 @@ use SimpleSoftwareIO\QrCode\Facades\QrCode;
 Route::controller(SiteController::class)->group(function () {
     // Beranda
     Route::get('/beranda', 'beranda')->name('site.beranda');
+
     // Profil
     Route::get('/profil', 'profil')->name('site.profil');
+
     // Berita
     Route::get('/berita', 'berita')->name('site.berita');
     Route::get('/berita/{slug}', 'show')->name('site.berita.show');
+    // Kategori Berita
+    Route::get('/kategori/{slug}', 'kategori_berita_index')->name('site.kategori.berita.index');
+
     // Informasi Publik
     Route::get('/info-publik/berkala', 'berkala')->name('site.info.publik.berkala');
     Route::get('/info-publik/serta-merta', 'serta_merta')->name('site.info.publik.serta.merta');
     Route::get('/info-publik/setiap-saat', 'setiap_saat')->name('site.info.publik.setiap.saat');
     Route::get('/info-publik/dikecualikan', 'dikecualikan')->name('site.info.publik.dikecualikan');
+
     // Kontak
     Route::get('/kontak', 'kontak')->name('site.kontak');
 });

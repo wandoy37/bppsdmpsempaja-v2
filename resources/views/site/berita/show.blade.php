@@ -100,8 +100,7 @@
                         </li>
                     </ul>
 
-                    <img src="{{ asset('postingan/thumbnail/' . $postingan->thumbnail) }}" class="img-fluid rounded"
-                        alt="">
+                    <img src="{{ $postingan->thumbnail }}" class="img-fluid rounded" alt="">
 
                     <div class="pt-4" align="justify">
                         {!! $postingan->konten !!}
