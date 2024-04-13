@@ -55,7 +55,10 @@ class SiteController extends Controller
 
             return response()->json(['html' => $view]);
         }
-        return view('site.berita.kategori', compact('kategori', 'postingans'));
+
+        $kategories = Kategori::all();
+        $recentPostingans = Postingan::orderBy('id', 'DESC')->skip(2)->take(2)->get();
+        return view('site.berita.kategori', compact('kategori', 'postingans', 'kategories', 'recentPostingans'));
     }
 
     public function show($slug)

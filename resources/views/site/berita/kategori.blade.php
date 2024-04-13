@@ -46,6 +46,78 @@
                     </div>
                 </div>
 
+                <div class="col-lg-4 mx-auto">
+                    <form class="custom-form search-form" action="{{ route('site.berita') }}" method="GET">
+                        <input class="form-control" type="text" placeholder="Search" name="search"
+                            value="{{ old('search') }}">
+
+                        <button type="submit" class="form-control">
+                            <i class="bi-search"></i>
+                        </button>
+                    </form>
+
+                    <h5 class="mt-5 mb-3">Berita Lainnya</h5>
+
+                    @if (count($recentPostingans) > 0)
+                        @foreach ($recentPostingans as $recent)
+                            <div class="news-block news-block-two-col d-flex mt-4">
+                                <div class="news-block-two-col-image-wrap">
+                                    <a href="{{ route('site.berita.show', $recent->slug) }}">
+                                        <img src="{{ $recent->thumbnail }}" class="img-fluid" alt="">
+                                    </a>
+                                </div>
+                                <div class="news-block-two-col-info">
+                                    <div class="news-block-title mb-2">
+                                        <a href="{{ route('site.berita.show', $recent->slug) }}"
+                                            class="news-block-title-link">
+                                            {{ str_word_count($recent->title) > 4 ? implode(' ', array_slice(explode(' ', $recent->title), 0, 4)) . '...' : $recent->title }}
+                                            - {{ $recent->slug }}
+                                        </a>
+                                    </div>
+
+                                    <div class="news-block-date">
+                                        <p>
+                                            <i class="bi-calendar4 custom-icon me-1"></i>
+                                            {{ $recent->created_at->format('d, F Y') }}
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
+                    @else
+                        <p>No results found.</p>
+                    @endif
+
+
+                    <div class="category-block d-flex flex-column">
+                        <h5 class="mb-3">Kategori Berita</h5>
+                        @foreach ($kategories as $kategori)
+                            <a href="{{ route('site.kategori.berita.index', $kategori->slug) }}"
+                                class="category-block-link">
+                                {{ $kategori->title }}
+                                <span class="badge">{{ $kategori->postingans->count() }}</span>
+                            </a>
+                        @endforeach
+                    </div>
+
+                    <div class="tags-block">
+                        <h5 class="mb-3">Facebook</h5>
+                        <div class="fb-page" data-href="https://www.facebook.com/uptdbppsdmpprovkaltim" data-width="380"
+                            data-hide-cover="false" data-show-facepile="false"></div>
+                    </div>
+
+                    <form class="custom-form subscribe-form" action="#" method="post" role="form">
+                        <h5 class="mb-4">Newsletter Form</h5>
+
+                        <input type="email" name="subscribe-email" id="subscribe-email" pattern="[^ @]*@[^ @]*"
+                            class="form-control" placeholder="Email Address" required>
+
+                        <div class="col-lg-12 col-12">
+                            <button type="submit" class="form-control">Subscribe</button>
+                        </div>
+                    </form>
+                </div>
+
             </div>
         </div>
     </section>

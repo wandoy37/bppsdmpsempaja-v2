@@ -243,8 +243,8 @@
                 </div>
 
                 <div class="col-lg-3">
-                    <img src="{{ asset('assets') }}/images/portrait-volunteer-who-organized-donations-charity.jpg"
-                        class="about-image bg-light shadow-lg img-fluid" alt="">
+                    <img src="{{ asset('img/kepala-balai.png') }}" class="about-image bg-light shadow-lg img-fluid"
+                        alt="">
                     <div class="text-center">
                         <h6 class="mb-0 pt-4">Tri Ida Kartini, SP., MP.</h6>
                         <p class="text-muted mb-lg-4 mb-md-4">Kepala UPTD BPPSDMP</p>
@@ -252,8 +252,8 @@
                 </div>
 
                 <div class="col-lg-3">
-                    <img src="{{ asset('assets') }}/images/portrait-volunteer-who-organized-donations-charity.jpg"
-                        class="about-image bg-light shadow-lg img-fluid" alt="">
+                    <img src="{{ asset('img/kasi-penyuluhan.png') }}" class="about-image bg-light shadow-lg img-fluid"
+                        alt="">
                     <div class="text-center">
                         <h6 class="mb-0 pt-4">Abdul Rokhim, SE.</h6>
                         <p class="text-muted mb-lg-4 mb-md-4">Kepala Seksi Penyuluhan</p>
@@ -261,8 +261,8 @@
                 </div>
 
                 <div class="col-lg-3">
-                    <img src="{{ asset('assets') }}/images/portrait-volunteer-who-organized-donations-charity.jpg"
-                        class="about-image bg-light shadow-lg img-fluid" alt="">
+                    <img src="{{ asset('img/kabag-tata-usaha.png') }}" class="about-image bg-light shadow-lg img-fluid"
+                        alt="">
                     <div class="text-center">
                         <h6 class="mb-0 pt-4">Nanang Hidayat, S.Kom</h6>
                         <p class="text-muted mb-lg-4 mb-md-4">Kepala Sub. Bagian Tata Usaha</p>
@@ -270,8 +270,8 @@
                 </div>
 
                 <div class="col-lg-3">
-                    <img src="{{ asset('assets') }}/images/portrait-volunteer-who-organized-donations-charity.jpg"
-                        class="about-image bg-light shadow-lg img-fluid" alt="">
+                    <img src="{{ asset('img/kasi-pengembangan.png') }}" class="about-image bg-light shadow-lg img-fluid"
+                        alt="">
                     <div class="text-center">
                         <h6 class="mb-0 pt-4">Anggia Chandra Wardani, SP</h6>
                         <p class="text-muted mb-lg-4 mb-md-4">Kepala Seksi SDM Pertanian</p>

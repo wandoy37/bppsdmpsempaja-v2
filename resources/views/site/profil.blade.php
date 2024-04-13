@@ -25,12 +25,12 @@
         <div class="container">
             <div class="row">
 
-                <div class="col-lg-6 col-12 mb-5 mb-lg-0">
-                    <img src="{{ asset('assets') }}/images/group-people-volunteering-foodbank-poor-people.jpg"
-                        class="custom-text-box-image img-fluid" alt="">
+                <div class="col-lg-12">
+                    <img src="{{ asset('img/team_uptd_bppsdmp.jpg') }}" class="custom-text-box-image img-fluid pb-4"
+                        alt="">
                 </div>
 
-                <div class="col-lg-6 col-12">
+                <div class="col-lg-12">
                     <div class="custom-text-box">
                         <h2 class="mb-1">UPTD</h2>
 
@@ -88,6 +88,55 @@
                                 </ul>
                             </div>
                         </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    {{-- PEMANGKU JABATAN --}}
+    <section class="contact-section section-padding" id="section_6">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-lg-10 col-12 text-center mx-auto">
+                    <h2 class="mb-5 text-uppercase">PEMANGKU JABATAN</h2>
+                </div>
+
+                <div class="col-lg-3">
+                    <img src="{{ asset('img/kepala-balai.png') }}" class="about-image bg-light shadow-lg img-fluid"
+                        alt="">
+                    <div class="text-center">
+                        <h6 class="mb-0 pt-4">Tri Ida Kartini, SP., MP.</h6>
+                        <p class="text-muted mb-lg-4 mb-md-4">Kepala UPTD BPPSDMP</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-3">
+                    <img src="{{ asset('img/kasi-penyuluhan.png') }}" class="about-image bg-light shadow-lg img-fluid"
+                        alt="">
+                    <div class="text-center">
+                        <h6 class="mb-0 pt-4">Abdul Rokhim, SE.</h6>
+                        <p class="text-muted mb-lg-4 mb-md-4">Kepala Seksi Penyuluhan</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-3">
+                    <img src="{{ asset('img/kabag-tata-usaha.png') }}" class="about-image bg-light shadow-lg img-fluid"
+                        alt="">
+                    <div class="text-center">
+                        <h6 class="mb-0 pt-4">Nanang Hidayat, S.Kom</h6>
+                        <p class="text-muted mb-lg-4 mb-md-4">Kepala Sub. Bagian Tata Usaha</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-3">
+                    <img src="{{ asset('img/kasi-pengembangan.png') }}" class="about-image bg-light shadow-lg img-fluid"
+                        alt="">
+                    <div class="text-center">
+                        <h6 class="mb-0 pt-4">Anggia Chandra Wardani, SP</h6>
+                        <p class="text-muted mb-lg-4 mb-md-4">Kepala Seksi SDM Pertanian</p>
                     </div>
                 </div>
 

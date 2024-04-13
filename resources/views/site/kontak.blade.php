@@ -27,62 +27,61 @@
 
                 <div class="col-lg-4 col-12 ms-auto mb-5 mb-lg-0">
                     <div class="contact-info-wrap">
-                        <h2>Get in touch</h2>
+                        <h2>Koordinator PPID</h2>
 
                         <div class="contact-image-wrap d-flex flex-wrap">
-                            <img src="{{ asset('assets') }}/images/avatar/pretty-blonde-woman-wearing-white-t-shirt.jpg"
-                                class="img-fluid avatar-image" alt="">
+                            <img src="{{ asset('img/kabag-tata-usaha.png') }}" class="img-fluid avatar-image"
+                                alt="">
 
                             <div class="d-flex flex-column justify-content-center ms-3">
-                                <p class="mb-0">Clara Barton</p>
-                                <p class="mb-0"><strong>HR & Office Manager</strong></p>
+                                <p class="mb-0">Nanang Hidayat</p>
+                                <p class="mb-0"><strong>Kasubbag Umum</strong></p>
                             </div>
                         </div>
 
                         <div class="contact-info">
-                            <h5 class="mb-3">Contact Infomation</h5>
+                            <h5 class="mb-3">Informasi Kontak</h5>
 
                             <p class="d-flex mb-2">
                                 <i class="bi-geo-alt me-2"></i>
-                                Akershusstranda 20, 0150 Oslo, Norway
+                                Jl. Thoyib Hadiwijaya No.36, Sempaja Selatan, Samarinda - Kalimantan Timur
                             </p>
 
                             <p class="d-flex mb-2">
                                 <i class="bi-telephone me-2"></i>
 
-                                <a href="tel: 305-240-9671">
-                                    305-240-9671
+                                <a href="tel: 0821-4872-2747">
+                                    0821-4872-2747
                                 </a>
                             </p>
 
                             <p class="d-flex">
                                 <i class="bi-envelope me-2"></i>
 
-                                <a href="mailto:info@yourgmail.com">
-                                    donate@charity.org
+                                <a href="mailto:uptdbppsdmp.kaltimprov@gmail.com">
+                                    uptdbppsdmp.kaltimprov@gmail.com
                                 </a>
                             </p>
 
-                            <a href="#" class="custom-btn btn mt-3">Get Direction</a>
+                            <a href="https://api.whatsapp.com/send/?phone=6282148722747" target="_blank"
+                                class="custom-btn btn mt-3">
+                                <i class="bi bi-whatsapp"></i>
+                                WhatsApp Chat
+                            </a>
                         </div>
                     </div>
                 </div>
 
                 <div class="col-lg-5 col-12 mx-auto">
                     <form class="custom-form contact-form" action="#" method="post" role="form">
-                        <h2>Contact form</h2>
+                        <h2>Kontak Kami</h2>
 
-                        <p class="mb-4">Or, you can just send an email:
-                            <a href="#">info@charity.org</a>
+                        <p class="mb-4">Hubungi kami melalu kanal website, atau melalui email:
+                            <a href="mailto:uptdbppsdmp.kaltimprov@gmail.com">uptdbppsdmp.kaltimprov@gmail.com</a>
                         </p>
                         <div class="row">
-                            <div class="col-lg-6 col-md-6 col-12">
-                                <input type="text" name="first-name" id="first-name" class="form-control"
-                                    placeholder="Jack" required>
-                            </div>
-
-                            <div class="col-lg-6 col-md-6 col-12">
-                                <input type="text" name="last-name" id="last-name" class="form-control" placeholder="Doe"
+                            <div class="col-lg-12">
+                                <input type="text" name="nama" id="nama" class="form-control" placeholder="Nama"
                                     required>
                             </div>
                         </div>
