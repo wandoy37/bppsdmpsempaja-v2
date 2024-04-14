@@ -193,16 +193,14 @@
             <div class="row justify-content-center">
 
                 <div class="col-lg-10 col-12 text-center mx-auto">
-                    <h2 class="mb-5 text-uppercase">APLIKASI LAYANAN</h2>
+                    <h2 class="mb-5 text-uppercase">APLIKASI TERKAIT</h2>
                 </div>
 
                 <div class="col-lg-3 col-md-6 col-12 mb-4 mb-lg-0">
                     <div class="featured-block d-flex justify-content-center align-items-center">
                         <a href="donate.html" class="d-block">
-                            <img src="{{ asset('assets') }}/images/icons/hands.png"
-                                class="featured-block-image img-fluid" alt="">
-
-                            <p class="featured-block-text"><strong>SIPP</strong></p>
+                            <img src="{{ asset('img/aplikasi/sipp.png') }}" class="featured-block-image img-fluid"
+                                style="border-radius: 15px;" alt="">
                         </a>
                     </div>
                 </div>
@@ -210,10 +208,8 @@
                 <div class="col-lg-3 col-md-6 col-12 mb-4 mb-lg-0">
                     <div class="featured-block d-flex justify-content-center align-items-center">
                         <a href="donate.html" class="d-block">
-                            <img src="{{ asset('assets') }}/images/icons/scholarship.png"
-                                class="featured-block-image img-fluid" alt="">
-
-                            <p class="featured-block-text"><strong>SIMPELTAN</strong></p>
+                            <img src="{{ asset('img/aplikasi/simpeltan.png') }}" class="featured-block-image img-fluid"
+                                style="border-radius: 15px;" alt="">
                         </a>
                     </div>
                 </div>
@@ -221,10 +217,8 @@
                 <div class="col-lg-3 col-md-6 col-12 mb-4 mb-lg-0 mb-md-4">
                     <div class="featured-block d-flex justify-content-center align-items-center">
                         <a href="donate.html" class="d-block">
-                            <img src="{{ asset('assets') }}/images/icons/heart.png"
-                                class="featured-block-image img-fluid" alt="">
-
-                            <p class="featured-block-text"><strong>SETKON</strong></p>
+                            <img src="{{ asset('img/aplikasi/setkon.png') }}" class="featured-block-image img-fluid"
+                                style="border-radius: 15px;" alt="">
                         </a>
                     </div>
                 </div>

@@ -27,6 +27,8 @@ use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 
 Route::controller(SiteController::class)->group(function () {
+    // Welcome
+    Route::get('/', 'welcome')->name('welcome');
     // Beranda
     Route::get('/beranda', 'beranda')->name('site.beranda');
 

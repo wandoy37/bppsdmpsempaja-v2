@@ -51,7 +51,7 @@
 
 <nav class="navbar navbar-expand-lg bg-light shadow-lg">
     <div class="container">
-        <a class="navbar-brand" href="index.html">
+        <a class="navbar-brand" href="{{ route('site.beranda') }}">
             <img src="{{ asset('/img/logo_kaltim.png') }}" class="img-fluid" width="50px" alt="logo_kaltim">
             <span>
                 UPTD BPPSDMP

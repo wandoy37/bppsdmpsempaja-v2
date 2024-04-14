@@ -8,6 +8,10 @@ use Illuminate\Http\Request;
 
 class SiteController extends Controller
 {
+    public function welcome()
+    {
+        return view('site.welcome');
+    }
     public function beranda()
     {
         $kategories = Kategori::all();
