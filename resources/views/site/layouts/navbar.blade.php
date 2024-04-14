@@ -87,11 +87,10 @@
 
                     <ul class="dropdown-menu dropdown-menu-light dropdown-menu-open"
                         aria-labelledby="navbarLightDropdownMenuLink">
-                        <li><a class="dropdown-item" href="news.html">Berkala</a></li>
-
-                        <li><a class="dropdown-item" href="news-detail.html">Serta Merta</a></li>
-                        <li><a class="dropdown-item" href="news-detail.html">Setiap Saat</a></li>
-                        <li><a class="dropdown-item" href="news-detail.html">Dikecualikan</a></li>
+                        @foreach ($info_publiks as $menu)
+                            <li><a class="dropdown-item"
+                                    href="{{ route('site.info.publik', $menu->slug) }}">{{ $menu->title }}</a></li>
+                        @endforeach
                     </ul>
                 </li>
 

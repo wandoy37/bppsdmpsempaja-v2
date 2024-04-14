@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\InfoPublik;
 use App\Models\Kategori;
 use App\Models\Postingan;
 use Illuminate\Http\Request;
@@ -17,12 +18,14 @@ class SiteController extends Controller
         $kategories = Kategori::all();
         $lastPosts = Postingan::orderBy('id', 'DESC')->take(2)->get();
         $recentPostingans = Postingan::orderBy('id', 'DESC')->skip(2)->take(2)->get();
-        return view('site.beranda', compact('kategories', 'lastPosts', 'recentPostingans'));
+        $info_publiks = InfoPublik::all();
+        return view('site.beranda', compact('kategories', 'lastPosts', 'recentPostingans', 'info_publiks'));
     }
 
     public function profil()
     {
-        return view('site.profil');
+        $info_publiks = InfoPublik::all();
+        return view('site.profil', compact('info_publiks'));
     }
 
     // Function Berita Index
@@ -46,7 +49,15 @@ class SiteController extends Controller
         $kategories = Kategori::all();
         $recentPostingans = Postingan::orderBy('id', 'DESC')->skip(2)->take(2)->get();
 
-        return view('site.berita.index', compact('postingans', 'recentPostingans', 'kategories'));
+        $info_publiks = InfoPublik::all();
+        return view('site.berita.index', compact('postingans', 'recentPostingans', 'kategories', 'info_publiks'));
+    }
+
+    public function informasi_publik_show($slug)
+    {
+        $info_publik = InfoPublik::where('slug', $slug)->first();
+        $info_publiks = InfoPublik::all();
+        return view('site.info_publik.show', compact('info_publik', 'info_publiks'));
     }
 
     // Kategori Berita Index
@@ -62,14 +73,16 @@ class SiteController extends Controller
 
         $kategories = Kategori::all();
         $recentPostingans = Postingan::orderBy('id', 'DESC')->skip(2)->take(2)->get();
-        return view('site.berita.kategori', compact('kategori', 'postingans', 'kategories', 'recentPostingans'));
+
+        $info_publiks = InfoPublik::all();
+        return view('site.berita.kategori', compact('kategori', 'postingans', 'kategories', 'recentPostingans', 'info_publiks'));
     }
 
     public function show($slug)
     {
         $postingan = Postingan::where('slug', $slug)->first();
-        // return response()->json($postingan);
-        return view('site.berita.show', compact('postingan'));
+        $info_publiks = InfoPublik::all();
+        return view('site.berita.show', compact('postingan', 'info_publiks'));
     }
     // Akhir Function Berita
 
@@ -77,6 +90,7 @@ class SiteController extends Controller
 
     public function kontak()
     {
-        return view('site.kontak');
+        $info_publiks = InfoPublik::all();
+        return view('site.kontak', compact('info_publiks'));
     }
 }

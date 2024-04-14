@@ -43,10 +43,7 @@ Route::controller(SiteController::class)->group(function () {
     Route::get('/kategori/{slug}', 'kategori_berita_index')->name('site.kategori.berita.index');
 
     // Informasi Publik
-    Route::get('/info-publik/berkala', 'berkala')->name('site.info.publik.berkala');
-    Route::get('/info-publik/serta-merta', 'serta_merta')->name('site.info.publik.serta.merta');
-    Route::get('/info-publik/setiap-saat', 'setiap_saat')->name('site.info.publik.setiap.saat');
-    Route::get('/info-publik/dikecualikan', 'dikecualikan')->name('site.info.publik.dikecualikan');
+    Route::get('/info-publik/{slug}', 'informasi_publik_show')->name('site.info.publik');
 
     // Kontak
     Route::get('/kontak', 'kontak')->name('site.kontak');
