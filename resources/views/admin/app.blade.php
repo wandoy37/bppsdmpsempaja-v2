@@ -93,7 +93,7 @@
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; UPTD BPPSDMP 2024 - {{ date('Y') }}</span>
+                        <span>Copyright &copy; UPTD BPPSDMP 2023 - {{ date('Y') }}</span>
                     </div>
                 </div>
             </footer>

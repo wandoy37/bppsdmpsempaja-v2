@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\InfoPublikController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\PenggunaController;
 use App\Http\Controllers\PostinganController;
@@ -75,4 +76,7 @@ Route::middleware(['auth'])->group(function () {
 
     // QRCODE Controller
     Route::resource('dashboard/qrcode', QrcodeController::class);
+
+    // Informasi Publik Controller
+    Route::resource('dashboard/info-publik', InfoPublikController::class);
 });

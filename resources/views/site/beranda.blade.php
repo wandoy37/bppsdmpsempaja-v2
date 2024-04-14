@@ -57,7 +57,7 @@
                 <div class="col-lg-8">
                     @if (count($lastPosts) > 0)
                         @foreach ($lastPosts as $post)
-                            <div class="news-block">
+                            <div class="news-block mb-4">
                                 <div class="news-block-top">
                                     <a href="{{ route('site.berita.show', $post->slug) }}">
                                         <img src="{{ $post->thumbnail }}" class="news-image img-fluid" alt="">
@@ -97,7 +97,9 @@
 
                                     <div class="news-block-body">
                                         <p>
-                                            {{ str_word_count($post->konten) > 20 ? implode(' ', array_slice(explode(' ', $post->konten), 0, 20)) . '...' : $post->konten }}
+                                            {{-- {!! str_word_count($post->konten) > 20
+                                                ? implode(' ', array_slice(explode(' ', $post->konten), 0, 20)) . '...'
+                                                : $post->konten !!} --}}
                                             <a href="{{ route('site.berita.show', $post->slug) }}">Baca Selengkapnya</a>
                                         </p>
                                     </div>

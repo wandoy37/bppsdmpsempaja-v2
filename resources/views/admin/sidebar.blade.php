@@ -25,7 +25,12 @@
     <li class="nav-item {{ request()->segment(2) == 'qrcode' ? 'active' : '' }}">
         <a class="nav-link" href="{{ route('qrcode.index') }}">
             <i class="fas fa-qrcode"></i>
-            <span>QRCODE</span></a>
+            <span>QR Code</span></a>
+    </li>
+    <li class="nav-item {{ request()->segment(2) == 'info-publik' ? 'active' : '' }}">
+        <a class="nav-link" href="{{ route('info-publik.index') }}">
+            <i class="fas fa-info-circle"></i>
+            <span>Informasi Publik</span></a>
     </li>
     <hr class="sidebar-divider">
     @if (Auth::user()->role == 'admin')
