@@ -82,7 +82,12 @@ class SiteController extends Controller
     {
         $postingan = Postingan::where('slug', $slug)->first();
         $info_publiks = InfoPublik::all();
-        return view('site.berita.show', compact('postingan', 'info_publiks'));
+        $kategories = Kategori::all();
+        $recentPostingans = Postingan::orderBy('id', 'DESC')->skip(2)->take(2)->get();
+
+        // Tampilkan Berita terkait dengan kategori berita saat ini
+        $relatedPosts = Postingan::where('kategori_id', $postingan->kategori_id)->orderBy('id', 'DESC')->skip(2)->take(3)->get();;
+        return view('site.berita.show', compact('postingan', 'info_publiks', 'kategories', 'recentPostingans', 'relatedPosts'));
     }
     // Akhir Function Berita
 
