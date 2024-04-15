@@ -13,18 +13,18 @@
                     <div id="hero-slide" class="carousel carousel-fade slide" data-bs-ride="carousel">
                         <div class="carousel-inner">
                             <div class="carousel-item active">
-                                <img src="{{ asset('assets') }}/images/slide/volunteer-helping-with-donation-box.jpg"
-                                    class="carousel-image img-fluid" alt="...">
+                                <img src="{{ asset('img/carousel/carousel-theme-1.png') }}" class="carousel-image img-fluid"
+                                    alt="...">
                             </div>
 
                             <div class="carousel-item">
-                                <img src="{{ asset('assets') }}/images/slide/volunteer-selecting-organizing-clothes-donations-charity.jpg"
-                                    class="carousel-image img-fluid" alt="...">
+                                <img src="{{ asset('img/carousel/carousel-theme-2.png') }}" class="carousel-image img-fluid"
+                                    alt="...">
                             </div>
 
                             <div class="carousel-item">
-                                <img src="{{ asset('assets') }}/images/slide/medium-shot-people-collecting-donations.jpg"
-                                    class="carousel-image img-fluid" alt="...">
+                                <img src="{{ asset('img/carousel/carousel-theme-3.png') }}" class="carousel-image img-fluid"
+                                    alt="...">
                             </div>
                         </div>
 
