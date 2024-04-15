@@ -5,6 +5,26 @@
 @endsection
 
 @section('content')
+    {{-- Modal --}}
+    <div class="modal fade modal-lg" id="modalSKM" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="false">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-6 text-center" id="exampleModalLabel">Survei Kepuasan Masyarakat UPTD BPPSDMP
+                        Kalimantan Timur</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center">
+                    <img src="{{ asset('img/heading_skm.png') }}" class="img-fluid" alt="">
+                    <a href="https://forms.gle/mwFu2TbKG2ihxDkW6" class="btn btn-success btn-lg">
+                        <i class="fas fa-pen"></i>
+                        Isi Survey Disini
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{-- End Modal --}}
     <section class="hero-section hero-section-full-height">
         <div class="container-fluid">
             <div class="row">
@@ -278,3 +298,10 @@
         </div>
     </section>
 @endsection
+@push('scripts')
+    <script type="text/javascript">
+        $(window).on('load', function() {
+            $('#modalSKM').modal('show');
+        });
+    </script>
+@endpush
