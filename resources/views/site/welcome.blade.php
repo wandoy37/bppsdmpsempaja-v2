@@ -32,7 +32,7 @@
 <body>
     <!-- Background image -->
     <div class="bg-image d-flex justify-content-center align-items-center"
-        style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('http://www.simpeltan.test/img/1344080-landscape-green-color-environment-growth-plant 1.png'); height: 100vh; background-repeat: no-repeat;background-position: center; background-repeat: no-repeat; background-size: cover;">
+        style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('{{ asset('img/landscape-green-color.png') }}'); height: 100vh; background-repeat: no-repeat;background-position: center; background-repeat: no-repeat; background-size: cover;">
         <!-- Background image -->
         <div class="container">
 
