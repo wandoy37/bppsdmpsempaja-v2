@@ -8,6 +8,8 @@
     <meta name="keywords" content="UPTD BPPSDMP, BPPSDMP Kaltim, BPPSDMP SEMPAJA">
     <meta name="author" content="bppsdmp kaltim">
     <meta name="webcrawlers" content="all">
+    <!--OTG-->
+    @stack('otgs')
 
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="{{ asset('img/logo-kaltim.svg') }}">

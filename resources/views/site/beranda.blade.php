@@ -82,44 +82,36 @@
                                     <a href="{{ route('site.berita.show', $post->slug) }}">
                                         <img src="{{ $post->thumbnail }}" class="news-image img-fluid" alt="">
                                     </a>
-                                    <div class="news-category-block">
-                                        <a href="{{ route('site.kategori.berita.index', $post->kategori->slug) }}"
-                                            class="category-block-link">
-                                            {{ $post->kategori->title }}
-                                        </a>
-                                    </div>
                                 </div>
                                 <div class="news-block-info">
                                     <div class="d-flex mt-2">
-                                        <div class="news-block-date">
-                                            <p>
-                                                <i class="bi-calendar4 custom-icon me-1"></i>
-                                                {{ $post->created_at->format('d, F Y') }}
-                                            </p>
-                                        </div>
-
-                                        <div class="news-block-author mx-5">
-                                            <p>
+                                        <ul id="menu" style="padding-left: 0rem;">
+                                            <li>
                                                 <i class="bi-person custom-icon me-1"></i>
-                                                By Admin
-                                            </p>
-                                        </div>
+                                                Admin |
+                                            </li>
+                                            <li>
+                                                <i class="bi-calendar4 custom-icon me-1"></i>
+                                                {{ $post->created_at->format('d, F Y') }} |
+                                            </li>
+                                            <li>
+                                                <i class="bi bi-bookmark"></i>
+                                                {{ $post->kategori->title }}
+                                            </li>
+                                        </ul>
                                     </div>
 
                                     <div class="news-block-title mb-2">
                                         <h4>
                                             <a href="{{ route('site.berita.show', $post->slug) }}"
                                                 class="news-block-title-link">
-                                                {{ $post->title }} - {{ $post->slug }}
+                                                {{ $post->title }}
                                             </a>
                                         </h4>
                                     </div>
 
                                     <div class="news-block-body">
                                         <p>
-                                            {{-- {!! str_word_count($post->konten) > 20
-                                                ? implode(' ', array_slice(explode(' ', $post->konten), 0, 20)) . '...'
-                                                : $post->konten !!} --}}
                                             <a href="{{ route('site.berita.show', $post->slug) }}">Baca Selengkapnya</a>
                                         </p>
                                     </div>
@@ -158,7 +150,6 @@
                                         <a href="{{ route('site.berita.show', $recent->slug) }}"
                                             class="news-block-title-link">
                                             {{ str_word_count($recent->title) > 4 ? implode(' ', array_slice(explode(' ', $recent->title), 0, 4)) . '...' : $recent->title }}
-                                            - {{ $recent->slug }}
                                         </a>
                                     </div>
 

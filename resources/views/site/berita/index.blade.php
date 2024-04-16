@@ -72,7 +72,6 @@
                                         <a href="{{ route('site.berita.show', $recent->slug) }}"
                                             class="news-block-title-link">
                                             {{ str_word_count($recent->title) > 4 ? implode(' ', array_slice(explode(' ', $recent->title), 0, 4)) . '...' : $recent->title }}
-                                            - {{ $recent->slug }}
                                         </a>
                                     </div>
 
