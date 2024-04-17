@@ -66,6 +66,7 @@ Route::middleware(['auth'])->group(function () {
     Route::middleware(['role:admin'])->group(function () {
         Route::get('dashboard/pengguna', [PenggunaController::class, 'index'])->name('pengguna.index');
         Route::get('dashboard/pengguna/create', [PenggunaController::class, 'create'])->name('pengguna.create');
+        Route::post('dashboard/pengguna/store', [PenggunaController::class, 'store'])->name('pengguna.store');
         Route::delete('dashboard/pengguna/{pengguna}', [PenggunaController::class, 'destroy'])->name('pengguna.destroy');
     });
     Route::get('dashboard/pengguna/{pengguna}/edit', [PenggunaController::class, 'edit'])->name('pengguna.edit');
