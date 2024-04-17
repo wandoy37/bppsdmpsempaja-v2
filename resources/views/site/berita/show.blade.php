@@ -1,5 +1,9 @@
 @extends('site.layouts.app')
 
+@section('title')
+    {{ $postingan->title }}
+@endsection
+
 @push('otgs')
     <meta property="og:title" content="{{ $postingan->title }}">
     <meta property="og:description" content="{{ Str::words(strip_tags($postingan->konten), 20, '...') }}">
