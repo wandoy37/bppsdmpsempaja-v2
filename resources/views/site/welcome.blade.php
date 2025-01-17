@@ -62,24 +62,31 @@
                         <div class="card-body p-0">
                             <div class="p-5">
                                 <div class="row">
-                                    <div class="col-md-4" style="margin-bottom: 10px;">
+                                    <div class="col-md-3" style="margin-bottom: 10px;">
                                         <a href="https://sipp.bppsdmsempaja.kaltimprov.go.id/"
                                             class="text-decoration-none text-dark" target="_blank">
                                             <img src="{{ asset('img/aplikasi/sipp.png') }}" class="img-fluid"
                                                 style="border-radius: 15px;" alt="">
                                         </a>
                                     </div>
-                                    <div class="col-md-4" style="margin-bottom: 10px;">
+                                    <div class="col-md-3" style="margin-bottom: 10px;">
                                         <a href="https://simpeltan.bppsdmsempaja.kaltimprov.go.id/"
                                             class="text-decoration-none text-dark" target="_blank">
                                             <img src="{{ asset('img/aplikasi/simpeltan.png') }}" class="img-fluid"
                                                 style="border-radius: 15px;" alt="">
                                         </a>
                                     </div>
-                                    <div class="col-md-4" style="margin-bottom: 10px;">
+                                    <div class="col-md-3" style="margin-bottom: 10px;">
                                         <a href="https://sertifikat.bppsdmsempaja.kaltimprov.go.id/"
                                             class="text-decoration-none text-dark" target="_blank">
                                             <img src="{{ asset('img/aplikasi/setkon.png') }}" class="img-fluid"
+                                                style="border-radius: 15px;" alt="">
+                                        </a>
+                                    </div>
+                                    <div class="col-md-3" style="margin-bottom: 10px;">
+                                        <a href="https://sertifikat.bppsdmsempaja.kaltimprov.go.id/"
+                                            class="text-decoration-none text-dark" target="_blank">
+                                            <img src="{{ asset('img/aplikasi/wibeltan.png') }}" class="img-fluid"
                                                 style="border-radius: 15px;" alt="">
                                         </a>
                                     </div>

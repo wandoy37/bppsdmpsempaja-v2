@@ -16,7 +16,7 @@
                 </div>
                 <div class="modal-body text-center">
                     <img src="{{ asset('img/heading_skm.png') }}" class="img-fluid" alt="">
-                    <a href="https://forms.gle/mwFu2TbKG2ihxDkW6" class="btn btn-success btn-lg">
+                    <a href="https://forms.gle/mwFu2TbKG2ihxDkW6" target="_blank" class="btn btn-success btn-lg">
                         <i class="fas fa-pen"></i>
                         Isi Survey Disini
                     </a>
