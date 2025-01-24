@@ -84,7 +84,7 @@
                                         </a>
                                     </div>
                                     <div class="col-md-3" style="margin-bottom: 10px;">
-                                        <a href="https://sertifikat.bppsdmsempaja.kaltimprov.go.id/"
+                                        <a href="https://wibeltan.bppsdmsempaja.kaltimprov.go.id/"
                                             class="text-decoration-none text-dark" target="_blank">
                                             <img src="{{ asset('img/aplikasi/wibeltan.png') }}" class="img-fluid"
                                                 style="border-radius: 15px;" alt="">

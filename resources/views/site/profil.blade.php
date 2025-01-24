@@ -48,7 +48,7 @@
                         </p>
                     </div>
 
-                    <div class="row">
+                    {{-- <div class="row">
                         <div class="col-lg-6 col-md-6 col-12">
                             <div class="custom-text-box mb-lg-0">
                                 <h5 class="mb-3">Visi</h5>
@@ -88,7 +88,7 @@
                                 </ul>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
 
             </div>
