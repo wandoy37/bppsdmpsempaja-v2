@@ -136,7 +136,33 @@
                 'insertdatetime',
                 'media', 'table', 'emoticons', 'help'
             ],
-            toolbar: 'undo redo | styles | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | print preview media | forecolor backcolor emoticons',
+            toolbar: 'insertfile undo redo | styles | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image media',
+            relative_urls: false,
+            file_picker_callback: function(callback, value, meta) {
+                var x = window.innerWidth || document.documentElement.clientWidth || document
+                    .getElementsByTagName('body')[0].clientWidth;
+                var y = window.innerHeight || document.documentElement.clientHeight || document
+                    .getElementsByTagName('body')[0].clientHeight;
+
+                var cmsURL = '/filemanager?editor=' + meta.fieldname;
+                if (meta.filetype == 'image') {
+                    cmsURL = cmsURL + "&type=Images";
+                } else {
+                    cmsURL = cmsURL + "&type=Files";
+                }
+
+                tinyMCE.activeEditor.windowManager.openUrl({
+                    url: cmsURL,
+                    title: 'Filemanager',
+                    width: x * 0.9,
+                    height: y * 0.9,
+                    resizable: 'yes',
+                    close_previous: 'no',
+                    onMessage: (api, message) => {
+                        callback(message.content);
+                    }
+                });
+            }
         });
 
         // Event Stand alone filemanager
