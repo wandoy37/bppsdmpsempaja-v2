@@ -9,6 +9,7 @@ use App\Http\Controllers\QrcodeController;
 use App\Http\Controllers\SiteController;
 use Illuminate\Support\Facades\Route;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
+use App\Http\Controllers\CaptchaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -78,3 +79,5 @@ Route::middleware(['auth'])->group(function () {
     // Informasi Publik Controller
     Route::resource('dashboard/info-publik', InfoPublikController::class);
 });
+
+Route::get('/reload-captcha', [CaptchaController::class, 'reloadCaptcha']);

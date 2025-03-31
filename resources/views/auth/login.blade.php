@@ -14,7 +14,7 @@
     <title>UPTD BPPSDMP - SIGN IN</title>
 
 
-    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="{{ asset('sbadmin') }}/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
@@ -54,8 +54,28 @@
                                     </div>
                                     <div class="form-group">
                                         <input type="password" class="form-control form-control-user" name="password"
-                                            placeholder="Password">
+                                            placeholder="Enter Password..." required>
                                     </div>
+                                    {{-- captcha --}}
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <div class="form-group captcha">
+                                                <span>{!! captcha_img('math') !!}</span>
+                                                <button type="button" class="btn btn-danger reload" id="reload">
+                                                    &#x21bb;
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="form-group">
+                                                <input type="text" name="captcha"
+                                                    class="form-control form-control-user @error('captcha') is-invalid @enderror"
+                                                    placeholder="captcha">
+                                            </div>
+                                        </div>
+                                    </div>
+
+
                                     <button class="btn btn-success btn-user btn-block">
                                         <i class="fa-solid fa-right-to-bracket"></i>
                                         LOGIN
@@ -81,6 +101,18 @@
         <!-- Custom scripts for all pages-->
         <script src="{{ asset('sbadmin/js/sb-admin-2.min.js') }}"></script>
 
+        <script>
+            $('#reload').click(function() {
+                $.ajax({
+                    type: 'GET',
+                    url: 'reload-captcha',
+                    success: function(data) {
+                        $(".captcha span").html(data.captcha)
+                    }
+                });
+            });
+        </script>
+        @include('sweetalert::alert')
 </body>
 
 </html>
