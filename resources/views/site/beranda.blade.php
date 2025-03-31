@@ -211,7 +211,7 @@
 
                 <div class="col-lg-3 col-md-6 col-12 mb-4 mb-lg-0">
                     <div class="featured-block d-flex justify-content-center align-items-center">
-                        <a href="donate.html" class="d-block">
+                        <a href="https://sipp.bppsdmsempaja.kaltimprov.go.id/" class="d-block">
                             <img src="{{ asset('img/aplikasi/sipp.png') }}" class="featured-block-image img-fluid"
                                 style="border-radius: 15px;" alt="">
                         </a>
@@ -220,8 +220,17 @@
 
                 <div class="col-lg-3 col-md-6 col-12 mb-4 mb-lg-0">
                     <div class="featured-block d-flex justify-content-center align-items-center">
-                        <a href="donate.html" class="d-block">
+                        <a href="https://simpeltan.bppsdmsempaja.kaltimprov.go.id/" class="d-block">
                             <img src="{{ asset('img/aplikasi/simpeltan.png') }}" class="featured-block-image img-fluid"
+                                style="border-radius: 15px;" alt="">
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6 col-12 mb-4 mb-lg-0">
+                    <div class="featured-block d-flex justify-content-center align-items-center">
+                        <a href="https://wibeltan.bppsdmsempaja.kaltimprov.go.id/" class="d-block">
+                            <img src="{{ asset('img/aplikasi/wibeltan.png') }}" class="featured-block-image img-fluid"
                                 style="border-radius: 15px;" alt="">
                         </a>
                     </div>
@@ -229,7 +238,7 @@
 
                 <div class="col-lg-3 col-md-6 col-12 mb-4 mb-lg-0 mb-md-4">
                     <div class="featured-block d-flex justify-content-center align-items-center">
-                        <a href="donate.html" class="d-block">
+                        <a href="https://sertifikat.bppsdmsempaja.kaltimprov.go.id/" class="d-block">
                             <img src="{{ asset('img/aplikasi/setkon.png') }}" class="featured-block-image img-fluid"
                                 style="border-radius: 15px;" alt="">
                         </a>

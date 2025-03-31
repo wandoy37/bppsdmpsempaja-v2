@@ -114,11 +114,11 @@
                 </div>
 
                 <div class="col-lg-3">
-                    <img src="{{ asset('img/kasi-penyuluhan.png') }}" class="about-image bg-light shadow-lg img-fluid"
+                    <img src="{{ asset('img/kabag-tata-usaha.png') }}" class="about-image bg-light shadow-lg img-fluid"
                         alt="">
                     <div class="text-center">
-                        <h6 class="mb-0 pt-4">Abdul Rokhim, SE.</h6>
-                        <p class="text-muted mb-lg-4 mb-md-4">Kepala Seksi Penyuluhan</p>
+                        <h6 class="mb-0 pt-4">Nanang Hidayat, S.Kom</h6>
+                        <p class="text-muted mb-lg-4 mb-md-4">Plt. Kepala Seksi Penyuluhan</p>
                     </div>
                 </div>
 

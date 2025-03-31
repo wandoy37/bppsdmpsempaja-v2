@@ -100,9 +100,14 @@
 
                     <ul class="dropdown-menu dropdown-menu-light dropdown-menu-open"
                         aria-labelledby="navbarLightDropdownMenuLink">
-                        <li><a class="dropdown-item" href="news.html">Wisata Edukasi Pertanian</a></li>
-
-                        <li><a class="dropdown-item" href="news-detail.html">Data Penyuluh Pertanian</a></li>
+                        <li><a class="dropdown-item" href="https://sipp.bppsdmsempaja.kaltimprov.go.id/">SIPP</a></li>
+                        <li><a
+                                class="dropdown-item"href="https://simpeltan.bppsdmsempaja.kaltimprov.go.id/">SIMPELTAN</a>
+                        </li>
+                        <li><a class="dropdown-item"href="https://wibeltan.bppsdmsempaja.kaltimprov.go.id/">WIBELTAN</a>
+                        </li>
+                        <li><a class="dropdown-item"href="https://sertifikat.bppsdmsempaja.kaltimprov.go.id/">SETKON</a>
+                        </li>
                     </ul>
                 </li>
 

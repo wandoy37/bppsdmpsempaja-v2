@@ -50,8 +50,8 @@
                             <p class="d-flex mb-2">
                                 <i class="bi-telephone me-2"></i>
 
-                                <a href="tel: 0821-4872-2747">
-                                    0821-4872-2747
+                                <a href="tel: 08125485983">
+                                    0812-5485-983
                                 </a>
                             </p>
 
