@@ -54,7 +54,7 @@
                                     </div>
                                     <div class="form-group">
                                         <input type="password" class="form-control form-control-user" name="password"
-                                            placeholder="Enter Password..." required>
+                                            placeholder="Enter password..." required autocomplete="off">
                                     </div>
                                     {{-- captcha --}}
                                     <div class="row">
@@ -76,7 +76,7 @@
                                     </div>
 
 
-                                    <button class="btn btn-success btn-user btn-block">
+                                    <button type="submit" class="btn btn-success btn-user btn-block">
                                         <i class="fa-solid fa-right-to-bracket"></i>
                                         LOGIN
                                     </button>

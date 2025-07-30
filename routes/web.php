@@ -26,6 +26,8 @@ use App\Http\Controllers\CaptchaController;
 //     return view('welcome');
 // });
 
+Route::get('/reload-captcha', [CaptchaController::class, 'reloadCaptcha']);
+
 
 
 Route::controller(SiteController::class)->group(function () {
@@ -79,5 +81,3 @@ Route::middleware(['auth'])->group(function () {
     // Informasi Publik Controller
     Route::resource('dashboard/info-publik', InfoPublikController::class);
 });
-
-Route::get('/reload-captcha', [CaptchaController::class, 'reloadCaptcha']);

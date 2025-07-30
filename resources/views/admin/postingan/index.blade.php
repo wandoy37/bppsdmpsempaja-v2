@@ -41,6 +41,7 @@
                             <thead>
                                 <tr>
                                     <th width="5%" class="text-center">No</th>
+                                    <th>Tanggal Publish</th>
                                     <th>Title</th>
                                     <th>Kategori</th>
                                     <th width="10%" class="text-center">Thumbnail</th>
@@ -55,9 +56,8 @@
                                 @foreach ($postingans as $postingan)
                                     <tr>
                                         <td class="text-center align-middle">{{ $no++ }}</td>
+                                        <td class="align-middle">{{ $postingan->created_at->format('d M Y') }}</td>
                                         <td class="align-middle">
-                                            <small>{{ $postingan->created_at->format('d/m/Y') }}</small>
-                                            <br>
                                             {{ $postingan->title }} - {{ $postingan->slug }}
                                         </td>
                                         <td class="align-middle">{{ $postingan->kategori->title }}</td>

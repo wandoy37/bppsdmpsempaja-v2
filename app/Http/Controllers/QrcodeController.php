@@ -48,6 +48,30 @@ class QrcodeController extends Controller
         if ($validator->fails()) {
             return redirect()->back()->withInput($request->all())->withErrors($validator);
         }
+        
+        $qrname = mt_rand(1000, 9999) . '.png';
+
+// Path ke folder public_html/qrcode
+$qrFolder = base_path('../public_html/qrcode');
+if (!file_exists($qrFolder)) {
+    mkdir($qrFolder, 0775, true);
+}
+
+$qrFullPath = $qrFolder . '/' . $qrname;
+
+FacadesQrCode::format('png')
+    ->merge(asset('img/logo_kaltim.png'), .2, true)
+    ->errorCorrection('M')
+    ->size(500)
+    ->generate($request->link, $qrFullPath);
+
+Qrcode::create([
+    'title' => $request->title,
+    'link' => $request->link,
+    'qrcode' => $qrname,
+]);
+
+return redirect()->route('qrcode.index')->with('success', 'berhasil membuat QRCODE baru');
 
         // If validator success
         DB::beginTransaction();
