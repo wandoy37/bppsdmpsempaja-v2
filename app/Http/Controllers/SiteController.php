@@ -16,7 +16,7 @@ class SiteController extends Controller
     public function beranda()
     {
         $kategories = Kategori::all();
-        $lastPosts = Postingan::orderBy('id', 'DESC')->take(2)->get();
+        $lastPosts = Postingan::orderBy('created_at', 'DESC')->take(2)->get();
         $recentPostingans = Postingan::orderBy('id', 'DESC')->skip(2)->take(2)->get();
         $info_publiks = InfoPublik::all();
         return view('site.beranda', compact('kategories', 'lastPosts', 'recentPostingans', 'info_publiks'));
@@ -33,22 +33,30 @@ class SiteController extends Controller
     {
         // Menginisialisasi query builder
         $postingans = Postingan::where('status', 'publish');
+
+        // Filter berdasarkan bulan dan tahun jika bulan_tahun ada
+        if (request('bulan_tahun')) {
+            // Mengambil bulan dan tahun dari request 'bulan_tahun' (misalnya '01-2025')
+            list($bulan, $tahun) = explode('-', request('bulan_tahun'));
+            $postingans->whereMonth('created_at', $bulan)
+                ->whereYear('created_at', $tahun);
+        }
+
         // Mencari data berdasarkan nilai search
         if (request('search')) {
             $postingans->where('title', 'LIKE', '%' . request('search') . '%');
         }
+
         // Mengambil hasil dan membatasi
-        $postingans = $postingans->orderBy('id', 'DESC')->paginate(5);
+        $postingans = $postingans->orderBy('created_at', 'DESC')->paginate(5);
 
         if ($request->ajax()) {
             $view = view('site.berita.data', compact('postingans'))->render();
-
             return response()->json(['html' => $view]);
         }
 
         $kategories = Kategori::all();
         $recentPostingans = Postingan::orderBy('id', 'DESC')->skip(2)->take(2)->get();
-
         $info_publiks = InfoPublik::all();
         return view('site.berita.index', compact('postingans', 'recentPostingans', 'kategories', 'info_publiks'));
     }

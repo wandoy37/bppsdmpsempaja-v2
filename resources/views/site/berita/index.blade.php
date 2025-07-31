@@ -100,6 +100,29 @@
                         @endforeach
                     </div>
 
+                    <div class="category-block d-flex flex-column">
+                        <h5 class="mb-3">Berita Bulanan</h5>
+                        @php
+                            use Carbon\Carbon;
+                            $currentYear = now()->year;
+                        @endphp
+
+                        @foreach (range(1, 12) as $month)
+                            @php
+                                $bulanTahun = sprintf('%02d-%d', $month, $currentYear); // Format untuk parameter URL
+                                // Tambahkan hari default (01) agar valid di semua bulan
+                                $bulanName = Carbon::createFromFormat('d-m-Y', '01-' . $bulanTahun)
+                                    ->locale('id')
+                                    ->translatedFormat('F Y');
+                            @endphp
+
+                            <a href="{{ route('site.berita', ['bulan_tahun' => $bulanTahun]) }}"
+                                class="category-block-link">
+                                {{ $bulanName }}
+                            </a>
+                        @endforeach
+                    </div>
+
                     <div class="tags-block">
                         <h5 class="mb-3">Facebook</h5>
                         <div class="fb-page" data-href="https://www.facebook.com/uptdbppsdmpprovkaltim" data-width="380"
